@@ -15,7 +15,6 @@ public class TimeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isPast = false;
         SetTime(isPast);
     }
 
