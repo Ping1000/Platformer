@@ -17,6 +17,10 @@ public abstract class Bullet : MonoBehaviour
         _col.isTrigger = true; // maybe change? idk
     }
 
+    private void OnEnable() {
+        GetComponent<Rigidbody2D>().velocity = moveSpeed * transform.right;
+    }
+
     // Update is called once per frame
     protected virtual void FixedUpdate()
     {
