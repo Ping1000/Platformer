@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Collider2D), typeof(Rigidbody2D))]
 public abstract class Bullet : MonoBehaviour
 {
     public float moveSpeed;
     public float lifetime;
+    public LayerMask collisionLayers;
 
     protected Collider2D _col;
     // Start is called before the first frame update
@@ -22,7 +23,6 @@ public abstract class Bullet : MonoBehaviour
         if (lifetime <= 0) {
             DespawnBullet();
         }
-        transform.position += transform.right * Time.deltaTime * moveSpeed;
         lifetime -= Time.fixedDeltaTime;
     }
 

@@ -10,8 +10,7 @@ public class TimeBullet : Bullet
             TimeManager.SwapTime();
         } else if (collision.gameObject.CompareTag("Time Swappable")) {
             TimeManager.SwapTime(collision.gameObject);
+            DespawnBullet();
         }
-        Debug.Log(collision.gameObject.tag);
-        DespawnBullet();
     }
 }

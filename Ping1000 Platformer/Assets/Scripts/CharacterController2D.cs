@@ -10,6 +10,7 @@ public class CharacterController2D : MonoBehaviour {
     [SerializeField] private float jumpForce = 500f;
     [SerializeField] private Transform[] groundChecks;
     [SerializeField] private LayerMask groundMask;
+    [SerializeField] private GunController _gun;
 
     // private List<AudioClip> shatterSounds;
     // [SerializeField]
@@ -33,7 +34,18 @@ public class CharacterController2D : MonoBehaviour {
     }
 
     void Update() {
-
+        if (Input.GetKeyDown(KeyCode.Mouse0)) {
+            _gun.Shoot();
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse1)) {
+            // we can take this out if we want
+            if (_gun.canShoot) {
+                // set cooldown after switching time too
+                _gun.canShoot = false;
+                _gun.fireTimer = _gun.fireDelay;
+                TimeManager.SwapTime();
+            }
+        }
     }
     // Update is called once per frame
     void FixedUpdate() {
@@ -74,10 +86,8 @@ public class CharacterController2D : MonoBehaviour {
         // Switch the way the player is labelled as facing.
         facingRight = !facingRight;
 
-        // Multiply the player's x local scale by -1.
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        // Rotate about the y-axis by 180 degrees.
+        transform.Rotate(new Vector3(0, 180, 0));
     }
 
     bool IsGrounded() {

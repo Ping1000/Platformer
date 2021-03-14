@@ -9,16 +9,10 @@ public class TurretTracker : MonoBehaviour
     public float rotationSpeed;
     [Tooltip("The point around which the rotator will rotate.")]
     public Transform rotationPoint;
-    [Tooltip("The object to rotate towards the player.")]
+    [Tooltip("The object to rotate towards trackedObject.")]
     public GameObject rotator;
     [Tooltip("Optional gun for shooting at player.")]
     public GunController gun;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void FixedUpdate()

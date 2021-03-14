@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    public KeyCode timeSwitch;
     public GameObject pastParent;
     public GameObject pastTilemap;
     public GameObject presentParent;
@@ -31,12 +30,6 @@ public class TimeManager : MonoBehaviour
     void Start()
     {
         SetTime(isPast);
-    }
-
-    private void Update() {
-        if (Input.GetKeyDown(timeSwitch)) {
-            SwapTime();
-        }
     }
 
     /// <summary>
