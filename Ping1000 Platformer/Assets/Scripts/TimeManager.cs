@@ -61,9 +61,9 @@ public class TimeManager : MonoBehaviour
     /// <param name="isPast"></param>
     public static void SetTime(bool isPast) {
         // Despawn all bullets (keep?)
-        foreach (Bullet bullet in FindObjectsOfType<Bullet>()) {
-            Destroy(bullet.gameObject);
-        }
+        //foreach (Bullet bullet in FindObjectsOfType<Bullet>()) {
+        //    Destroy(bullet.gameObject);
+        //}
 
         instance.pastParent.SetActive(isPast);
         instance.pastTilemap.SetActive(isPast);
