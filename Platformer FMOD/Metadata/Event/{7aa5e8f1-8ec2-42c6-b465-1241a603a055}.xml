@@ -902,7 +902,7 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1988 Craftsman II 1
 			<value>-1</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>-80</value>
 		</property>
 		<property name="curveShape">
 			<value>0.323011011</value>
@@ -913,7 +913,7 @@ Recordings by David Nichols of Track Time Audio. Engine is a 1988 Craftsman II 1
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>-30</value>
+			<value>-80</value>
 		</property>
 	</object>
 	<object class="AutomationCurve" id="{4ab9e2da-d86b-4c34-8a01-38b804dee18f}">
