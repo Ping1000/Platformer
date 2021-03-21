@@ -16,6 +16,9 @@ public class CharacterController2D : MonoBehaviour {
     // [SerializeField]
     // private List<AudioClip> jumpSounds;
 
+    [HideInInspector]
+    public int lives = 1;
+
     Vector3 zeroVector = Vector3.zero;
 
     // public bool isFragile = true;
@@ -102,5 +105,12 @@ public class CharacterController2D : MonoBehaviour {
         }
 
         return false;
+    }
+
+    public void HitPlayer(int damage) {
+        lives -= damage;
+        if (lives < 0) {
+            LevelProgressTracker.PlayerDeath();
+        }
     }
 }

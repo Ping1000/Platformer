@@ -42,9 +42,10 @@ GameObject:
   - component: {fileID: 4709714101287651386}
   - component: {fileID: 4709714101287651385}
   - component: {fileID: 4709714101287651384}
+  - component: {fileID: 7844187259243327096}
   m_Layer: 0
   m_Name: Enemy Turret
-  m_TagString: Time Swappable
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,6 +160,19 @@ MonoBehaviour:
   rotationPoint: {fileID: 4709714101900692411}
   rotator: {fileID: 4709714101984977943}
   gun: {fileID: 4709714101984977944}
+--- !u!114 &7844187259243327096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4709714101287651383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37df17e1d247a6d4c9412fb92a9ffe46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToSwap: {fileID: 4709714101287651383}
 --- !u!1 &4709714101900692410
 GameObject:
   m_ObjectHideFlags: 0
