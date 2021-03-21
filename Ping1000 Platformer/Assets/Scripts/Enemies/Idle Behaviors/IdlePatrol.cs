@@ -12,7 +12,6 @@ public class IdlePatrol : EnemyIdle
     /// </summary>
     public List<Transform> movePositions;
     private int nextMovePos = 0;
-    public AttackBehavior _atk;
 
     // Start is called before the first frame update
     void OnEnable()

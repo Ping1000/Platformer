@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
-public class MeleeFOV : MonoBehaviour 
+public class MeleeFOV : EnemyFOV 
 {
     [SerializeField]
     protected EnemyIdle _enemy;
@@ -42,7 +42,8 @@ public class MeleeFOV : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        StartCoroutine(WaitForAttack());
+        if (enabled)
+            StartCoroutine(WaitForAttack());
     }
 
     IEnumerator WaitForAttack() {

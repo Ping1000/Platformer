@@ -5,12 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public abstract class EnemyIdle : MonoBehaviour
 {
-    [Tooltip("Trigger for the aggro field of view.")]
-    public PolygonCollider2D fieldOfView;
     public float moveSpeed;
 
     public Animator _anim;
-    [SerializeField] protected bool facingRight;
+    public bool facingRight;
+    public AttackBehavior _atk;
 
     public bool isIdle {
         get {
@@ -35,7 +34,7 @@ public abstract class EnemyIdle : MonoBehaviour
     /// </summary>
     protected abstract void TryFlip();
 
-    protected void Flip() {
+    public void Flip() {
         // Switch the way the player is labelled as facing.
         facingRight = !facingRight;
 

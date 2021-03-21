@@ -109,7 +109,7 @@ public class CharacterController2D : MonoBehaviour {
 
     public void HitPlayer(int damage) {
         lives -= damage;
-        if (lives < 0) {
+        if (lives <= 0) {
             LevelProgressTracker.PlayerDeath();
         }
     }

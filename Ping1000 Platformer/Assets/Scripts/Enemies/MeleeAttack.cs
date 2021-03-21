@@ -24,10 +24,12 @@ public class MeleeAttack : AttackBehavior
     }
 
     public override void BeginAttack() {
+        isAttacking = true;
         _col.enabled = true;
     }
 
     public override void EndAttack() {
+        isAttacking = false;
         _col.enabled = false;
     }
 

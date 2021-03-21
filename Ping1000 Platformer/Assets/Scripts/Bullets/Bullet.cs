@@ -7,7 +7,6 @@ public abstract class Bullet : MonoBehaviour
 {
     public float moveSpeed;
     public float lifetime;
-    public LayerMask collisionLayers;
 
     protected Collider2D _col;
     // Start is called before the first frame update

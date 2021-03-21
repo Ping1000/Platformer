@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyFOV : MonoBehaviour
+public abstract class EnemyFOV : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
