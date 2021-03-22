@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4065725181341855744}
   m_Layer: 0
   m_Name: BarrelEnd
-  m_TagString: Time Swappable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 5208962546757997361}
   m_Layer: 0
   m_Name: Enemy Gun
-  m_TagString: Time Swappable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,8 +119,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3454471470593964552}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.2525, y: 0.126, z: 0}
-  m_LocalScale: {x: 0.4950254, y: 0.12554587, z: 1}
+  m_LocalPosition: {x: -0.0003, y: -0.1429, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4065725181341855744}
   m_Father: {fileID: 6096336825638815144}
@@ -165,12 +165,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: a7ba9c1563313e64280ede4b53856416, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 0}
+  m_Sprite: {fileID: 21300000, guid: 73f54b3d28f51814da7d107c8d0cf0ef, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.71428573}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 9113269830610484497}
   m_Layer: 0
   m_Name: RotatePoint
-  m_TagString: Time Swappable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -312,8 +312,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4681789522503919680}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.053, y: 0.126, z: 0}
-  m_LocalScale: {x: 2.2857099, y: 0.67227, z: 1}
+  m_LocalPosition: {x: -0.4276, y: -0.1465, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6096336825638815144}
   m_RootOrder: 3
@@ -396,8 +396,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2516451299610970621, guid: 8dc71608b45136a4da2e339d39872f4b,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: 145b44b816a84f14abbbec1380ed14d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -444,14 +443,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2.125}
+    oldSize: {x: 1, y: 2.4285715}
     newSize: {x: 0.64, y: 1.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.125}
+  m_Size: {x: 1, y: 2.42}
   m_EdgeRadius: 0
 --- !u!114 &4505723323525675513
 MonoBehaviour:

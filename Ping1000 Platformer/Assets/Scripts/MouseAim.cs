@@ -8,10 +8,12 @@ public class MouseAim : MonoBehaviour
     public Transform rotationPoint;
     [Tooltip("The object to rotate towards the mouse.")]
     public GameObject rotator;
+    [Tooltip("A vector offset for the rotate position.")]
+    public Vector3 rotatorOffset;
 
     public Vector3 aimDirection {
         get {
-            return (rotator.transform.position - rotationPoint.position).normalized;
+            return (rotator.transform.position + rotatorOffset - rotationPoint.position).normalized;
         }
     }
 
