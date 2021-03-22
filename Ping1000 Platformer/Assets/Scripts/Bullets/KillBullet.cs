@@ -12,6 +12,12 @@ public class KillBullet : Bullet
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision) {
-        DespawnBullet();
+        CharacterController2D player = collision.gameObject.
+            GetComponent<CharacterController2D>();
+        if (player != null) {
+            player.HitPlayer(1);
+            DespawnBullet();
+        }
+        // add damage for other things like enemies?
     }
 }

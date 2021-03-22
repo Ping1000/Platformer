@@ -22,6 +22,7 @@ public class RepeaterGun : GunController
     }
 
     public override void Shoot() {
+        SendMessage("OnShoot");
         GameObject newBullet = Instantiate(bulletPrefab, gunBarrel.position,
             gunBarrel.rotation, TimeManager.activeTimeParent.transform);
     }
