@@ -5,9 +5,9 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     public GameObject pastParent;
-    public GameObject pastTilemap;
+    public List<GameObject> pastTilemaps;
     public GameObject presentParent;
-    public GameObject presentTilemap;
+    public List<GameObject> presentTilemaps;
 
     public static TimeManager instance;
     /// <summary>
@@ -66,8 +66,12 @@ public class TimeManager : MonoBehaviour
         //}
 
         instance.pastParent.SetActive(isPast);
-        instance.pastTilemap.SetActive(isPast);
+        foreach (GameObject tilemap in instance.pastTilemaps) {
+            tilemap.SetActive(isPast);
+        }
         instance.presentParent.SetActive(!isPast);
-        instance.presentTilemap.SetActive(!isPast);
+        foreach (GameObject tilemap in instance.presentTilemaps) {
+            tilemap.SetActive(!isPast);
+        }
     }
 }

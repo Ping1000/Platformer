@@ -22,6 +22,7 @@ public class SingleShotGun : GunController
 
         GameObject newBullet = Instantiate(bulletPrefab, gunBarrel.position,
             gunBarrel.rotation, TimeManager.activeTimeParent.transform);
+        newBullet.GetComponent<Bullet>().firedBy = transform.parent.gameObject;
 
         canShoot = false;
         fireTimer = fireDelay;

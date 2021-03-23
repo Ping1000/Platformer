@@ -25,5 +25,6 @@ public class RepeaterGun : GunController
         SendMessage("OnShoot");
         GameObject newBullet = Instantiate(bulletPrefab, gunBarrel.position,
             gunBarrel.rotation, TimeManager.activeTimeParent.transform);
+        newBullet.GetComponent<Bullet>().firedBy = transform.parent.gameObject;
     }
 }
