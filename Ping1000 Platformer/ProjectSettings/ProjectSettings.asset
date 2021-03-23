@@ -133,7 +133,6 @@ PlayerSettings:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -560,9 +559,9 @@ PlayerSettings:
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
   allowUnsafeCode: 0
-  additionalIl2CppArgs: --additional-cpp="D:/OneDrive/CMU/8th_sem_S21/Game Design/Platformer/Platformer/Ping1000
-    Platformer/Assets/../Temp/fmod_register_static_plugins.cpp" --additional-cpp="D:/OneDrive/CMU/8th_sem_S21/Game
-    Design/Platformer/Platformer/Ping1000 Platformer/Assets/Plugins/FMOD/src/Runtime/fmod_static_plugin_support.h"
+  additionalIl2CppArgs: --additional-cpp="C:/Users/DHern/Documents/Unity Projects/Platformer/Ping1000
+    Platformer/Assets/../Temp/fmod_register_static_plugins.cpp" --additional-cpp="C:/Users/DHern/Documents/Unity
+    Projects/Platformer/Ping1000 Platformer/Assets/Plugins/FMOD/src/Runtime/fmod_static_plugin_support.h"
   scriptingRuntimeVersion: 1
   gcIncremental: 0
   assemblyVersionValidation: 1
