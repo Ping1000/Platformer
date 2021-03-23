@@ -5,7 +5,7 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     [Header("Past")]
-    [SerializeField] public bool isPast;
+    [SerializeField] public bool isPast; // what should it set to on restart?
     [SerializeField] public GameObject pastParent;
     [SerializeField] public List<GameObject> pastTilemaps;
     
