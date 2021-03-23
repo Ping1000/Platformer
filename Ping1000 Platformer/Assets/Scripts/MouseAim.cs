@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 public class MouseAim : MonoBehaviour
 {
@@ -17,7 +19,7 @@ public class MouseAim : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+/*    void FixedUpdate()
     {
         TrackObject();
     }
@@ -29,6 +31,17 @@ public class MouseAim : MonoBehaviour
 
         float angle = Vector2.SignedAngle(rotatorVec, trackedVec);
         rotator.transform.RotateAround(rotationPoint.position, 
+            Vector3.forward, angle);
+    }*/
+
+    void OnMouseAim(InputValue value)
+    {
+        Vector2 rotatorVec = rotator.transform.position - rotationPoint.position;
+        Vector2 trackedVec = Camera.main.ScreenToWorldPoint(value.Get<Vector2>())
+            - rotationPoint.position;
+
+        float angle = Vector2.SignedAngle(rotatorVec, trackedVec);
+        rotator.transform.RotateAround(rotationPoint.position,
             Vector3.forward, angle);
     }
 }

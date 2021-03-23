@@ -133,8 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c56e886169c5e2841926910d4f5eb19a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 5
   lifetime: 3
-  collisionLayers:
-    serializedVersion: 2
-    m_Bits: 768
+  firedBy: {fileID: 0}

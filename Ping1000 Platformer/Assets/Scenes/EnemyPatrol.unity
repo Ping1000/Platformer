@@ -1602,15 +1602,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b514b47512279649a2c70fedf9838a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPast: 1
   pastParent: {fileID: 1835132050}
   pastTilemaps:
   - {fileID: 295265172}
   - {fileID: 1336020499}
-  presentParent: {fileID: 1223544287}
-  presentTilemaps:
+  futureParent: {fileID: 1223544287}
+  futureTilemaps:
   - {fileID: 1991557177}
   - {fileID: 1463874141}
-  isPast: 1
 --- !u!114 &787745495
 MonoBehaviour:
   m_ObjectHideFlags: 0
