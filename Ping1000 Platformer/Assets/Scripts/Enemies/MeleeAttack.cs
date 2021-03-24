@@ -34,8 +34,8 @@ public class MeleeAttack : AttackBehavior
     }
 
     private void OnTriggerStay2D(Collider2D collision) {
-        CharacterController2D player = collision.gameObject.
-            GetComponent<CharacterController2D>();
+        EricCharacterMovement player = collision.gameObject.
+            GetComponent<EricCharacterMovement>();
         if (player != null) {
             player.HitPlayer(1);
         }

@@ -159,7 +159,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1774806037431153986, guid: 54ffb5bb53b1bed4a868582c02f9710a,
     type: 3}
   gunBarrel: {fileID: 6367407209853433999}
-  fireDelay: 1
+  fireDelay: 0.5
   fireTimer: 0
 --- !u!1 &6367407211617400312
 GameObject:
