@@ -11,6 +11,7 @@ public class IdlePatrol : EnemyIdle
     /// List of positions to cycle through when moving
     /// </summary>
     public List<Transform> movePositions;
+    public float patrolMoveSpeed = 10f;
     private int nextMovePos = 0;
 
     // Start is called before the first frame update
@@ -23,14 +24,22 @@ public class IdlePatrol : EnemyIdle
     void Update()
     {
         if (isIdle) {
-            if (Vector3.Distance(transform.position, 
+            if (movePositions.Count == 0)
+            {
+                StartCoroutine(Patrol());
+            }
+            else
+            {
+
+            }
+            /*if (Vector3.Distance(transform.position, 
                 movePositions[nextMovePos].position) > Mathf.Epsilon) {
                 transform.position = Vector3.MoveTowards(transform.position, 
                     movePositions[nextMovePos].position, moveSpeed * Time.deltaTime);
             } else {
                 nextMovePos = (nextMovePos + 1) % movePositions.Count;
                 TryFlip();
-            }
+            }*/
         }
     }
 
@@ -46,6 +55,14 @@ public class IdlePatrol : EnemyIdle
     /// </summary>
     private void EndAttack() {
         _atk.EndAttack();
+    }
+
+    IEnumerator Patrol()
+    {
+        // Move in direction
+        yield return new WaitUntil(() => !(isPatrolling));
+        // Pause for a bit, then patrol other direction
+        // OR chase after player
     }
 
     protected override void TryFlip() {

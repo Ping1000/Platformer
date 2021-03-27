@@ -56,6 +56,7 @@ public class EricCharacterMovement : MonoBehaviour
     private float timeSinceBuffered = Mathf.Infinity;
 
     private bool facingRight;
+    private bool isPaused = false;
 
     [HideInInspector] public int lives = 1;
 
@@ -195,5 +196,24 @@ public class EricCharacterMovement : MonoBehaviour
             _gun.fireTimer = _gun.fireDelay;
             TimeManager.SwapTime();
         }
+    }
+    void OnPause(InputValue value)
+    {
+        if (!isPaused)
+        {
+            isPaused = true;
+            // Set timescale to zero
+
+            // Set pause menu canvas to active
+        }
+        else
+        {
+            isPaused = false;
+            // Set timescale back to one
+
+            // Set pause menu canvas to inactive
+
+        }
+
     }
 }
