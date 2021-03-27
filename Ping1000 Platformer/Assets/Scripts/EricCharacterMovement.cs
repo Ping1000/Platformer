@@ -149,7 +149,7 @@ public class EricCharacterMovement : MonoBehaviour
         transform.Rotate(new Vector3(0, 180, 0));
     }
 
-    public void HitPlayer(int damage)
+    public void HitPlayer(int damage = 1)
     {
         lives -= damage;
         if (lives <= 0)

@@ -15,7 +15,7 @@ public class KillBullet : Bullet
         EricCharacterMovement player = collision.gameObject.
             GetComponent<EricCharacterMovement>();
         if (player != null) {
-            player.HitPlayer(1);
+            player.HitPlayer();
             DespawnBullet();
         }
         // add damage for other things like enemies?
