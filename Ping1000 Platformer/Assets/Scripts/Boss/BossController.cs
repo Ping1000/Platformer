@@ -4,7 +4,6 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator), typeof(Rigidbody2D))]
 public class BossController : MonoBehaviour {
-    public GameObject missilePrefab;
     [HideInInspector]
     public int currentPhase = 0;
     public List<PhaseInfo> phaseInfo;
@@ -118,9 +117,16 @@ public class BossController : MonoBehaviour {
     }
 
     public void LaunchMissile() {
-        GameObject missile = Instantiate(missilePrefab, TimeManager.activeTimeParent);
-        // maybe add a "launch position" like with the gun barrels
-        missile.transform.position = gameObject.transform.position;
+        GameObject missile = Instantiate(Resources.Load("Prefabs/Missile") as GameObject,
+            TimeManager.activeTimeParent);
+
+        missile.transform.position = transform.Find("Missile Launch Point").position;
+    }
+
+    public void LaunchNuke() {
+        GameObject nuke = Instantiate(Resources.Load("Prefabs/Nuke") as GameObject,
+            TimeManager.activeTimeParent);
+        nuke.transform.position = transform.position;
     }
 
     public void FireGun() {

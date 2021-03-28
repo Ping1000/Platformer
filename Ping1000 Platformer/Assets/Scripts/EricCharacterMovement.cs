@@ -187,13 +187,13 @@ public class EricCharacterMovement : MonoBehaviour
     }
     void OnTimeSwap(InputValue value)
     {
+        TimeManager.SwapTime();
         // we can take this out if we want
-        if (_gun.canShoot)
-        {
-            // set cooldown after switching time too
-            _gun.canShoot = false;
-            _gun.fireTimer = _gun.fireDelay;
-            TimeManager.SwapTime();
-        }
+        //if (_gun.canShoot)
+        //{
+        //    // set cooldown after switching time too
+        //    _gun.canShoot = false;
+        //    _gun.fireTimer = _gun.fireDelay;
+        //}
     }
 }

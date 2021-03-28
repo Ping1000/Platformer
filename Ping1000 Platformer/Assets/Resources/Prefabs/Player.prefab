@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6367407211234846906}
   - component: {fileID: 6367407211234846904}
-  - component: {fileID: 6367407211234846905}
+  - component: {fileID: 9131048447525288585}
   m_Layer: 0
   m_Name: Player Gun
   m_TagString: Player Weapon
@@ -143,7 +143,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6367407211234846905
+--- !u!114 &9131048447525288585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,15 +152,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 6367407211234846907}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7826483c933bfb841b36fb32ce516414, type: 3}
+  m_Script: {fileID: 11500000, guid: 7013791e8b9ab1541b4af403f8c46850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canShoot: 0
   bulletPrefab: {fileID: 1774806037431153986, guid: 54ffb5bb53b1bed4a868582c02f9710a,
     type: 3}
   gunBarrel: {fileID: 6367407209853433999}
-  fireDelay: 0.5
+  fireDelay: 0
   fireTimer: 0
+  maxAmmo: 5
+  timeToRecharge: 1
 --- !u!1 &6367407211617400312
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +273,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &6367407211617400295
 MonoBehaviour:
