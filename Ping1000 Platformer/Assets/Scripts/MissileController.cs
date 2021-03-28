@@ -49,6 +49,11 @@ public class MissileController : MonoBehaviour
         }
     }
 
+    public void Explode() {
+        // add animation, sound, etc
+        Destroy(gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision) {
         if (!hasExitedBoss)
             return;
@@ -56,10 +61,10 @@ public class MissileController : MonoBehaviour
         GameObject collidedObj = collision.gameObject;
         if (collidedObj.CompareTag("Player")) {
             collidedObj.GetComponent<EricCharacterMovement>().HitPlayer();
-            Destroy(gameObject);
+            Explode();
         } else if (collidedObj.CompareTag("Boss")) {
             collidedObj.GetComponent<BossController>().HitBoss();
-            Destroy(gameObject);
+            Explode();
         }
     }
 }

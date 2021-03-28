@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3602155113712701897}
   - component: {fileID: 3602155113712701898}
   - component: {fileID: 1753238206338818145}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Time Swappable Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -57,7 +57,7 @@ public class EricCharacterMovement : MonoBehaviour
 
     private bool facingRight;
 
-    [HideInInspector] public int lives = 1;
+    public int lives = 3;
 
     // Init and Update functions
     void Awake()
