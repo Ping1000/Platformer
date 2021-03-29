@@ -58,7 +58,7 @@ public class EricCharacterMovement : MonoBehaviour
     private bool facingRight;
     private bool isPaused = false;
 
-    [HideInInspector] public int lives = 1;
+    public int lives = 3;
 
     // Init and Update functions
     void Awake()
@@ -188,14 +188,14 @@ public class EricCharacterMovement : MonoBehaviour
     }
     void OnTimeSwap(InputValue value)
     {
+        TimeManager.SwapTime();
         // we can take this out if we want
-        if (_gun.canShoot)
-        {
-            // set cooldown after switching time too
-            _gun.canShoot = false;
-            _gun.fireTimer = _gun.fireDelay;
-            TimeManager.SwapTime();
-        }
+        //if (_gun.canShoot)
+        //{
+        //    // set cooldown after switching time too
+        //    _gun.canShoot = false;
+        //    _gun.fireTimer = _gun.fireDelay;
+        //}
     }
     void OnPause(InputValue value)
     {
