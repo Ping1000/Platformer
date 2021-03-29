@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 977708123181903907}
   m_Layer: 0
-  m_Name: Chase and Shoot Guard
+  m_Name: Patrol Guard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 1390844439224084628}
   - component: {fileID: 4505723323525675513}
   - component: {fileID: 154159716817196711}
+  - component: {fileID: 642604811157101882}
   m_Layer: 0
   m_Name: Guard Body
   m_TagString: Untagged
@@ -478,7 +479,8 @@ MonoBehaviour:
   wallDetectionDistance: 0.1
   wallDetectionMargins: 0.1
   objectDetectionDistance: 0.1
-  waitTime: 0.5
+  haltTime: 0.5
+  restartTime: 0.5
 --- !u!114 &154159716817196711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +494,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSwap: {fileID: 977708123181903906}
+--- !u!50 &642604811157101882
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6096336825638815142}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 6200000, guid: 3b7de3ad1ce3c0048b8391f65270c475, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &8136390524996659718
 GameObject:
   m_ObjectHideFlags: 0

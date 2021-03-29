@@ -5,10 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public abstract class EnemyIdle : MonoBehaviour
 {
+    [Header("Attributes")]
     public float moveSpeed;
-
-    public Animator _anim;
     public bool facingRight;
+    public Animator _anim;
     public AttackBehavior _atk;
 
     public bool isIdle {

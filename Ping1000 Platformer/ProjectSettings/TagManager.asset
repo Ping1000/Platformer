@@ -8,6 +8,7 @@ TagManager:
   - Time Swappable
   - Player Weapon
   - Boss
+  - Floor
   layers:
   - Default
   - TransparentFX

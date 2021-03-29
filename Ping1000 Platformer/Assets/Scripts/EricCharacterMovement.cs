@@ -27,7 +27,7 @@ public class EricCharacterMovement : MonoBehaviour
     // However, that box has to have some width and should also not extend the full width of the player
     // (lest the boxcast collides with the wall). This parameter says how far to extend the boxcast vertically
     // as well as how far to retract it horizontally.
-    [SerializeField] private float boxcastMargins;
+    [SerializeField] private float boxcastMargins = .1f;
 
     [Header("Speed Settings")] 
     [SerializeField] private float minJumpHeight = 2f;
@@ -37,7 +37,7 @@ public class EricCharacterMovement : MonoBehaviour
     [SerializeField] private float acceleration = 60f;
     [SerializeField] private float airAcceleration = 30f;
     [SerializeField] private float maxSpeed = 15f;
-    [SerializeField] [Range(0f, 1.1f)] private float stopDamping = 0.001f;
+    [SerializeField] [Range(0f, 1.1f)] private float stopDamping = 0.0001f; // Higher is less damping
 
     [Header("Extra Stuff")] 
     [SerializeField] private float coyoteTime = 0.2f;

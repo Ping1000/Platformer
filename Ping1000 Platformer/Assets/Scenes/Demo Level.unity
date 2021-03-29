@@ -18560,6 +18560,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6367407211617400315, guid: c687641640a96654a95699f8069ced59,
+        type: 3}
+      propertyPath: stopDamping
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 6367407211617400317, guid: c687641640a96654a95699f8069ced59,
         type: 3}
       propertyPath: m_RootOrder
