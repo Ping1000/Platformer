@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Time Swappable
+  - Player Weapon
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -16,9 +19,9 @@ TagManager:
   - 
   - Floor
   - Player
-  - 
-  - 
-  - 
+  - Boss
+  - Boss Triggers
+  - Boss No Collide
   - 
   - 
   - 

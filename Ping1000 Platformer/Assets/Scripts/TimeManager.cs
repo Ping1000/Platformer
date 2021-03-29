@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    public GameObject pastParent;
-    public GameObject pastTilemap;
-    public GameObject presentParent;
-    public GameObject presentTilemap;
+    [Header("Past")]
+    [SerializeField] public bool isPast; // what should it set to on restart?
+    [SerializeField] public GameObject pastParent;
+    [SerializeField] public List<GameObject> pastTilemaps;
+    
+    [Header("Future")]
+    [SerializeField] public GameObject futureParent;
+    [SerializeField] public List<GameObject> futureTilemaps;
 
     public static TimeManager instance;
     /// <summary>
@@ -17,10 +21,9 @@ public class TimeManager : MonoBehaviour
     public static Transform activeTimeParent { get {
             if (instance.isPast)
                 return instance.pastParent.transform;
-            return instance.presentParent.transform;
+            return instance.futureParent.transform;
         } }
 
-    public bool isPast;
 
     private void Awake() {
         instance = this;
@@ -48,7 +51,7 @@ public class TimeManager : MonoBehaviour
     /// <param name="swappedObj">The object to send</param>
     public static void SwapTime(GameObject swappedObj) {
         if (instance.isPast) {
-            swappedObj.transform.parent = instance.presentParent.transform;
+            swappedObj.transform.parent = instance.futureParent.transform;
         } else {
             swappedObj.transform.parent = instance.pastParent.transform;
         }
@@ -66,8 +69,12 @@ public class TimeManager : MonoBehaviour
         //}
 
         instance.pastParent.SetActive(isPast);
-        instance.pastTilemap.SetActive(isPast);
-        instance.presentParent.SetActive(!isPast);
-        instance.presentTilemap.SetActive(!isPast);
+        foreach (GameObject tilemap in instance.pastTilemaps) {
+            tilemap.SetActive(isPast);
+        }
+        instance.futureParent.SetActive(!isPast);
+        foreach (GameObject tilemap in instance.futureTilemaps) {
+            tilemap.SetActive(!isPast);
+        }
     }
 }

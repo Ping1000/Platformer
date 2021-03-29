@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 public class MouseAim : MonoBehaviour
 {
@@ -8,14 +10,16 @@ public class MouseAim : MonoBehaviour
     public Transform rotationPoint;
     [Tooltip("The object to rotate towards the mouse.")]
     public GameObject rotator;
+    [Tooltip("A vector offset for the rotate position.")]
+    public Vector3 rotatorOffset;
 
     public Vector3 aimDirection {
         get {
-            return (rotator.transform.position - rotationPoint.position).normalized;
+            return (rotator.transform.position + rotatorOffset - rotationPoint.position).normalized;
         }
     }
 
-    void FixedUpdate()
+/*    void FixedUpdate()
     {
         TrackObject();
     }
@@ -27,6 +31,17 @@ public class MouseAim : MonoBehaviour
 
         float angle = Vector2.SignedAngle(rotatorVec, trackedVec);
         rotator.transform.RotateAround(rotationPoint.position, 
+            Vector3.forward, angle);
+    }*/
+
+    void OnMouseAim(InputValue value)
+    {
+        Vector2 rotatorVec = rotator.transform.position - rotationPoint.position;
+        Vector2 trackedVec = Camera.main.ScreenToWorldPoint(value.Get<Vector2>())
+            - rotationPoint.position;
+
+        float angle = Vector2.SignedAngle(rotatorVec, trackedVec);
+        rotator.transform.RotateAround(rotationPoint.position,
             Vector3.forward, angle);
     }
 }

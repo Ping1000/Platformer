@@ -121,6 +121,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &97265836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 97265837}
+  m_Layer: 0
+  m_Name: mega man (1) (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &97265837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97265836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &170089062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1429,7 +1459,7 @@ Transform:
   - {fileID: 295265173}
   - {fileID: 472650343}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &472650342
 GameObject:
@@ -2632,7 +2662,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &787745492
 GameObject:
@@ -2663,7 +2693,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &787745494
 MonoBehaviour:
@@ -2677,11 +2707,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b514b47512279649a2c70fedf9838a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeSwitch: 113
+  isPast: 0
   pastParent: {fileID: 1835132050}
-  pastTilemap: {fileID: 295265172}
-  presentParent: {fileID: 1223544287}
-  presentTilemap: {fileID: 472650342}
+  pastTilemaps: []
+  futureParent: {fileID: 0}
+  futureTilemaps: []
 --- !u!1 &960002825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2740,7 +2770,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1835132050
 GameObject:
@@ -2771,7 +2801,7 @@ Transform:
   m_Children:
   - {fileID: 1911378356}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1911378355
 GameObject:
@@ -2928,13 +2958,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSmoothing: 0.1
   jumpForce: 400
-  maxYVelocity: 8
   groundChecks:
   - {fileID: 170089063}
   - {fileID: 960002826}
   groundMask:
     serializedVersion: 2
     m_Bits: 256
+  _gun: {fileID: 0}
+  lives: 1
 --- !u!212 &1948685997
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2999,7 +3030,7 @@ Transform:
   - {fileID: 170089063}
   - {fileID: 960002826}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1948685999
 MonoBehaviour:
