@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 977708123181903906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.81, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6096336825638815144}
@@ -329,11 +329,11 @@ GameObject:
   - component: {fileID: 6096336825638815144}
   - component: {fileID: 6096336825638815145}
   - component: {fileID: 6096336825638815147}
-  - component: {fileID: 1390844439224084628}
   - component: {fileID: 4505723323525675513}
   - component: {fileID: 154159716817196711}
+  - component: {fileID: 1390844439224084628}
   - component: {fileID: 642604811157101882}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Guard Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427,6 +427,50 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4505723323525675513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6096336825638815142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f4cdb0411dd54944ad8ecbac33ddff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 2
+  facingRight: 1
+  _anim: {fileID: 6096336825638815147}
+  _atk: {fileID: 5208962546757997361}
+  useWaypoints: 0
+  movePositions: []
+  floorTag: Floor
+  floorLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  allDetectableLayers:
+    serializedVersion: 2
+    m_Bits: 8448
+  edgeDetectionDistance: 0.1
+  wallDetectionDistance: 0.1
+  detectionMargins: 0.1
+  objectDetectionDistance: 0.1
+  haltTime: 0.5
+  restartTime: 0.5
+--- !u!114 &154159716817196711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6096336825638815142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37df17e1d247a6d4c9412fb92a9ffe46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToSwap: {fileID: 977708123181903906}
 --- !u!61 &1390844439224084628
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -452,48 +496,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 2.42}
-  m_EdgeRadius: 0
---- !u!114 &4505723323525675513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6096336825638815142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f4cdb0411dd54944ad8ecbac33ddff2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 2
-  facingRight: 1
-  _anim: {fileID: 6096336825638815147}
-  _atk: {fileID: 5208962546757997361}
-  useWaypoints: 0
-  movePositions: []
-  floorTag: Floor
-  floorLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  edgeDetectionDistance: 0.1
-  wallDetectionDistance: 0.1
-  wallDetectionMargins: 0.1
-  objectDetectionDistance: 0.1
-  haltTime: 0.5
-  restartTime: 0.5
---- !u!114 &154159716817196711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6096336825638815142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37df17e1d247a6d4c9412fb92a9ffe46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectToSwap: {fileID: 977708123181903906}
+  m_EdgeRadius: 0.01
 --- !u!50 &642604811157101882
 Rigidbody2D:
   serializedVersion: 4
@@ -509,7 +512,7 @@ Rigidbody2D:
   m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 50
   m_Material: {fileID: 6200000, guid: 3b7de3ad1ce3c0048b8391f65270c475, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
