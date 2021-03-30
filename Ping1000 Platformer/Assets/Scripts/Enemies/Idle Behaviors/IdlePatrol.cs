@@ -105,9 +105,6 @@ public class IdlePatrol : EnemyIdle
             PatrolMove();
         }
 
-
-
-
     }
 
     IEnumerator HaltPatrol()
@@ -149,18 +146,20 @@ public class IdlePatrol : EnemyIdle
     private bool EdgeDetected()
     {
         float dir = facingRight ? _collider.bounds.max.x : _collider.bounds.min.x;
-        Vector2 edgeCheck = new Vector2(dir, _collider.bounds.min.y);
-        RaycastHit2D hit = Physics2D.Raycast(edgeCheck, Vector2.down, edgeDetectionDistance, floorLayer);
+        Vector2 edgeCheck = new Vector2(dir, _collider.bounds.min.y - .011f - Mathf.Epsilon); 
+        //.011f magic num from extra radius on box collider, only needed if doing allDetectableLayers
+        RaycastHit2D hit = Physics2D.Raycast(edgeCheck, Vector2.down, edgeDetectionDistance, allDetectableLayers);
+        Debug.DrawRay(edgeCheck, Vector2.down * edgeDetectionDistance, Color.red, .5f);
         if (hit.collider == null)
         { // Not hitting anything, so assume over edge
             
-            Debug.DrawRay(edgeCheck, Vector2.down, Color.red, .5f);
+            // Debug.DrawRay(edgeCheck, Vector2.down * edgeDetectionDistance, Color.red, .5f);
             // Trailing edge check, if collider is completely off platform, enemy is falling
             // Basically a grounded check
             Vector2 point = new Vector2(_collider.bounds.center.x, _collider.bounds.min.y);
             Vector2 size = new Vector2(_collider.bounds.extents.x - detectionMargins, edgeDetectionDistance);
 
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(point, size, 0f, floorLayer);
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(point, size, 0f, allDetectableLayers);
             if (colliders.Length > 0)
             { // Still grounded, so give signal that edge was found so that we can halt and turn
                 Debug.Log(name + " Hit Edge");
@@ -203,11 +202,13 @@ public class IdlePatrol : EnemyIdle
 
         // Probably should use OverlapBox as that doesn't alloc, but this is easier
         // Can expand floor layer to encompass boxes if we want, then we have an easy object detection too
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(boxCenter, boxSize, 0f, floorLayer);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(boxCenter, boxSize, 0f, allDetectableLayers);
         
         if (colliders.Length > 0)
         { // Hit something
-            //if (colliders.Length == 1 && colliders[0].Equals(this._collider)) { return false; }
+            // Ignore if it's just you
+            if (colliders.Length == 1 && colliders[0].Equals(this._collider)) { return false; }
+
             Debug.Log(name + " Hit Wall, colliders hit: " + colliders.Length +
                       " | First collider named: " + colliders[0].name);
             return true;

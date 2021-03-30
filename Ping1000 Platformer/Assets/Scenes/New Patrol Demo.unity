@@ -222,6 +222,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Time Swappable Box
       objectReference: {fileID: 0}
+    - target: {fileID: 3602155113712701901, guid: 0d61216fd5fdb794ea9fa67875c98f7a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d61216fd5fdb794ea9fa67875c98f7a, type: 3}
 --- !u!1 &685962802
