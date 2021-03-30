@@ -37,6 +37,7 @@ public class MouseAim : MonoBehaviour
     void OnMouseAim(InputValue value)
     {
         Vector2 rotatorVec = rotator.transform.position - rotationPoint.position;
+        // Vector2 rotatorVec = aimDirection;
         Vector2 trackedVec = Camera.main.ScreenToWorldPoint(value.Get<Vector2>())
             - rotationPoint.position;
 

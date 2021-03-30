@@ -101,8 +101,12 @@ public class SFXManager : MonoBehaviour
         miscSource1.clip = Resources.Load("Audio/SFX/Missile_Impact") as AudioClip;
         miscSource1.Play();
         if (FindObjectsOfType<MissileController>().Length <= 1) {
-            miscSource2.Stop();
+            Invoke("StopMissileTravel", 0.2f);
         }
+    }
+
+    void StopMissileTravel() {
+        miscSource2.Stop();
     }
 
     IEnumerator FadeIn(AudioSource src, float fadeTime = 2f, float maxVolume = 1f) {
@@ -131,8 +135,8 @@ public class SFXManager : MonoBehaviour
         }
     }
 
-    public void NukeChargeSound() {
-        miscSource1.clip = Resources.Load("Audio/SFX/Pulse_Charge") as AudioClip;
+    //public void NukeChargeSound() {
+    //    miscSource1.clip = Resources.Load("Audio/SFX/Pulse_Charge") as AudioClip;
 
-    }
+    //}
 }

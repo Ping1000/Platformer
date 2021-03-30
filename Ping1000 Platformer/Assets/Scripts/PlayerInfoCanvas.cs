@@ -31,12 +31,12 @@ public class PlayerInfoCanvas : MonoBehaviour
                 AddAmmo();
             }
             for (int i = 0; i < player.lives; i++) {
-                AddHealthUnit();
+                AddHealth();
             }
         }
     }
 
-    public static void AddHealthUnit(int amount = 1) {
+    public static void AddHealth(int amount = 1) {
         for (int i = 0; i < amount; i++) {
             GameObject newUnit = Instantiate(Resources.Load<GameObject>("Prefabs/Health Unit"),
                 instance.healthUnitParent);
@@ -44,8 +44,10 @@ public class PlayerInfoCanvas : MonoBehaviour
         }
     }
 
-    public static void RemoveHealthUnit(int amount = 1) {
+    public static void RemoveHealth(int amount = 1) {
         for (int i = 0; i < amount; i++) {
+            if (instance.healthUnits.Count == 0)
+                return;
             Destroy(instance.healthUnits.Pop());
         }
     }
@@ -60,6 +62,8 @@ public class PlayerInfoCanvas : MonoBehaviour
 
     public static void RemoveAmmo(int amount = 1) {
         for (int i = 0; i < amount; i++) {
+            if (instance.ammoUnits.Count == 0)
+                return;
             Destroy(instance.ammoUnits.Pop());
         }
     }

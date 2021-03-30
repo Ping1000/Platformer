@@ -14,6 +14,7 @@ public class BossController : MonoBehaviour {
     private Animator _anim;
     private GunController _gun;
     private Rigidbody2D _rb;
+    private EricCharacterMovement player;
     private bool isEnraged;
 
     [HideInInspector]
@@ -35,6 +36,7 @@ public class BossController : MonoBehaviour {
         _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody2D>();
         _gun = GetComponentInChildren<GunController>();
+        player = FindObjectOfType<EricCharacterMovement>();
         baseHealth = Health;
         isChasing = false;
         StartNewPhase();
@@ -42,6 +44,7 @@ public class BossController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        FlipToPlayer();
         // maybe do some casing on info.isEnragedPhase
         if (isChasing) {
             Vector2 vel = _rb.velocity;
@@ -49,6 +52,13 @@ public class BossController : MonoBehaviour {
             _rb.velocity = vel;
         }
         // movement stuff here or in startnewPhase
+    }
+
+    private void FlipToPlayer() {
+        if (transform.position.x < player.transform.position.x && !facingRight)
+            Flip();
+        if (transform.position.x > player.transform.position.x && facingRight)
+            Flip();
     }
 
     private void Flip() {
@@ -78,11 +88,13 @@ public class BossController : MonoBehaviour {
     private void BeginChasing() {
         // TEMPORARYYYY
         SFXManager.PlayNewSound("Audio/SFX/Boss_Loud_Landing", volumeType.half);
-        if (!facingRight)
-            Flip();
+        //if (!facingRight)
+        //    Flip();
 
         // do something to level here? like in a coroutine?
         DoorLocks.LockDoors(false);
+        _rb.velocity = Vector2.zero;
+        GetComponent<BossFlyingMovement>().enabled = false;
         Camera.main.GetComponent<FollowCam>().enabled = true;
 
         // start moving to the right
@@ -95,6 +107,7 @@ public class BossController : MonoBehaviour {
         PhaseInfo info = phaseInfo[currentPhase - 1];
         GameObject cam = Camera.main.gameObject;
         cam.GetComponent<FollowCam>().enabled = false;
+        GetComponent<BossFlyingMovement>().enabled = true;
         LeanTween.move(cam, info.cameraPos.position, 2f).setEaseOutSine();
 
         isEnraged = info.isEnragedPhase;
@@ -140,8 +153,7 @@ public class BossController : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        EricCharacterMovement player;
-        if (player = collision.gameObject.GetComponent<EricCharacterMovement>()) {
+        if (collision.gameObject.GetComponent<EricCharacterMovement>() == player) {
             player.HitPlayer();
             Vector2 pushDir = collision.contacts[0].point - (Vector2)transform.position;
             pushDir = pushDir.normalized;

@@ -42,7 +42,7 @@ public class BossFlyingMovement : MonoBehaviour
         Vector2 dirNorm = dir.normalized;
         //Vector2 velocityVector = new Vector2(dirNorm.x, dirNorm.y * verticalSpeedMultiplier) * flySpeed;
         float speed = Mathf.Clamp(distanceDamping * ((distToPlayer * distToPlayer) - closestDistToPlayer), 0f, maxSpeed);
-        Debug.Log(speed);
+        // Debug.Log(speed);
         Vector2 velocityVector = new Vector2(dirNorm.x * speed, dirNorm.y * speed);
         _rb.velocity = velocityVector;
 

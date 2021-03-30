@@ -153,6 +153,7 @@ public class EricCharacterMovement : MonoBehaviour
     public void HitPlayer(int damage = 1)
     {
         lives -= damage;
+        PlayerInfoCanvas.RemoveHealth(damage);
         if (lives <= 0)
         {
             LevelProgressTracker.PlayerDeath();
