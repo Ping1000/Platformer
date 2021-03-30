@@ -50313,8 +50313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f956eb777a420f443b82b69195647d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missilePrefab: {fileID: 799403809677813527, guid: 85c5213f4bc3e2946a1982c12f139028,
-    type: 3}
   currentPhase: 0
   phaseInfo:
   - cameraPos: {fileID: 1682693456}
@@ -50494,12 +50492,12 @@ PrefabInstance:
     - target: {fileID: 6367407211617400317, guid: c687641640a96654a95699f8069ced59,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.95
+      value: -5.78
       objectReference: {fileID: 0}
     - target: {fileID: 6367407211617400317, guid: c687641640a96654a95699f8069ced59,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.6
+      value: -3.79
       objectReference: {fileID: 0}
     - target: {fileID: 6367407211617400317, guid: c687641640a96654a95699f8069ced59,
         type: 3}
@@ -54344,6 +54342,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 113087171918782109, guid: 6e5918ecd5fdfdf489c04e8f66443103,
+        type: 3}
+      propertyPath: fadeTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2639001914967520220, guid: 6e5918ecd5fdfdf489c04e8f66443103,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e3dd9eb8e7ade374d9b408567a32384f, type: 3}
     - target: {fileID: 3302764651063969504, guid: 6e5918ecd5fdfdf489c04e8f66443103,
         type: 3}
       propertyPath: m_RootOrder

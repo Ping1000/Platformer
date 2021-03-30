@@ -17,8 +17,9 @@ public class ShootAttack : AttackBehavior
         _enemy._anim.SetTrigger("shoot");
     }
 
-    public override void BeginAttack() {
-        _gun.canShoot = true;
+    public override void BeginAttack(string soundPath = "",
+        volumeType volume = volumeType.half) {
+        _gun.Shoot(soundPath, volume);
         isAttacking = true;
     }
 

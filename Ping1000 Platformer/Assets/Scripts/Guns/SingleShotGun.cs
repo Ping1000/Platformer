@@ -16,13 +16,15 @@ public class SingleShotGun : GunController
         }
     }
 
-    public override void Shoot() {
+    public override void Shoot(string soundPath = "", 
+        volumeType volume = volumeType.half) {
         if (!canShoot)
             return;
 
         GameObject newBullet = Instantiate(bulletPrefab, gunBarrel.position,
             gunBarrel.rotation, TimeManager.activeTimeParent.transform);
         newBullet.GetComponent<Bullet>().firedBy = transform.parent.gameObject;
+        SFXManager.PlayNewSound(soundPath, volume);
 
         canShoot = false;
         fireTimer = fireDelay;

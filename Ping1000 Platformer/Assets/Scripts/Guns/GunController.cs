@@ -16,5 +16,6 @@ public abstract class GunController : MonoBehaviour
     [HideInInspector]
     public float fireTimer;
 
-    public abstract void Shoot();
+    public abstract void Shoot(string soundPath = "", 
+        volumeType volume = volumeType.half);
 }

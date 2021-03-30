@@ -8,6 +8,8 @@ using UnityEngine;
 /// </summary>
 public class IdlePatrol : EnemyIdle
 {
+    public string attackSoundPath;
+
     /// <summary>
     /// List of positions to cycle through when moving
     /// </summary>
@@ -74,7 +76,7 @@ public class IdlePatrol : EnemyIdle
     /// Start attack. Needs to be on this script because the animator needs to see it
     /// </summary>
     private void BeginAttack() {
-        _atk.BeginAttack();
+        _atk.BeginAttack(attackSoundPath, volumeType.half);
     }
 
     /// <summary>

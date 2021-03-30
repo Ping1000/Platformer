@@ -17,6 +17,8 @@ public class ChaseFOV : EnemyFOV {
     private GameObject chasedObj;
     public float stopDistance;
 
+    public string attackSoundPath;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,7 +47,7 @@ public class ChaseFOV : EnemyFOV {
             }
         } else {
             if (!_enemy._atk.isAttacking)
-                _enemy._atk.BeginAttack();
+                _enemy._atk.BeginAttack(attackSoundPath, volumeType.half);
         }
     }
 

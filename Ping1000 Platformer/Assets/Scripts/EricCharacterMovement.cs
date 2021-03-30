@@ -11,7 +11,6 @@
  *   2. This notice may not be removed or altered from any source distribution.
  */
 
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,7 +35,7 @@ public class EricCharacterMovement : MonoBehaviour
     [Space]
     [SerializeField] private float acceleration = 60f;
     [SerializeField] private float airAcceleration = 30f;
-    [SerializeField] private float maxSpeed = 15f;
+    public float maxSpeed = 15f;
     [SerializeField] [Range(0f, 1.1f)] private float stopDamping = 0.0001f; // Higher is less damping
 
     [Header("Extra Stuff")] 
@@ -44,11 +43,11 @@ public class EricCharacterMovement : MonoBehaviour
     [SerializeField] private float bufferTime = 0.2f;
 
 
-    private Rigidbody2D _rb;
+    public Rigidbody2D _rb { get; private set; }
     private Collider2D _collider;
     private GunController _gun;
 
-    private bool grounded;
+    public bool grounded { get; private set; }
     private bool spacePressed;
     private float horizontalVelocity = 0.0f;
 
@@ -100,6 +99,8 @@ public class EricCharacterMovement : MonoBehaviour
                 Mathf.Sqrt(-2f * Physics2D.gravity.y * gravityScale * maxJumpHeight));
             timeSinceBuffered = Mathf.Infinity;
             timeSinceGrounded = Mathf.Infinity;
+
+            SFXManager.PlayNewSound("Audio/SFX/Jump", volumeType.loud);
 
             if (!spacePressed)
             {
@@ -184,7 +185,8 @@ public class EricCharacterMovement : MonoBehaviour
     }
     void OnShoot(InputValue value)
     {
-        _gun.Shoot();
+        string[] shootStrings = new string[] {"Player_Shoot_1", "Player_Shoot_2", "Player_Shoot_3"};
+        _gun.Shoot("Audio/SFX/" + shootStrings[Random.Range(0, shootStrings.Length)], volumeType.half);
     }
     void OnTimeSwap(InputValue value)
     {
@@ -215,5 +217,36 @@ public class EricCharacterMovement : MonoBehaviour
 
         }
 
+    }
+
+    private void TryPlayLandSound() {
+        if (_rb.velocity.y < -20f) {
+            SFXManager.PlayNewSound("Audio/SFX/Loud_Landing", volumeType.quiet);
+        } else if (_rb.velocity.y < -5f) {
+            SFXManager.PlayNewSound("Audio/SFX/Landing", volumeType.half);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.layer == 8) {
+
+            float impulse = 0F;
+
+            foreach (ContactPoint2D point in collision.contacts) {
+                impulse += point.normalImpulse;
+            }
+
+            impulse = impulse / Time.fixedDeltaTime;
+
+            Vector3 impactDir = (Vector3)collision.contacts[0].point - transform.position;
+            float angle = Vector3.SignedAngle(impactDir, Vector3.down, Vector3.forward);
+            if (angle < 40f) {
+                if (impulse >= 1000f) {
+                    SFXManager.PlayNewSound("Audio/SFX/Loud_Landing", volumeType.half);
+                } else {
+                    SFXManager.PlayNewSound("Audio/SFX/Landing", volumeType.half);
+                }
+            }
+        }
     }
 }

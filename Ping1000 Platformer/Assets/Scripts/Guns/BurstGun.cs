@@ -19,14 +19,18 @@ public class BurstGun : GunController
         
     }
 
-    public override void Shoot() {
+    public override void Shoot(string soundPath = "", 
+        volumeType volume = volumeType.half) {
         SendMessage("OnShoot");
-        StartCoroutine(Shooting());
+        StartCoroutine(Shooting(soundPath, volume));
     }
 
-    IEnumerator Shooting() {
+    IEnumerator Shooting(string soundPath = "",
+        volumeType volume = volumeType.half) {
         for (int i = 0; i < burstsPerShoot; i++) {
             float burstTimer = burstDelay;
+            SFXManager.PlayNewSound(soundPath, volume);
+
             for (int j = 0; j < bulletsPerBurst; j++) {
                 float fireTimer = fireDelay;
                 GameObject newBullet = Instantiate(bulletPrefab, gunBarrel.position,

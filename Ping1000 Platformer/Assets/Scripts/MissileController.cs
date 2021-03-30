@@ -51,6 +51,7 @@ public class MissileController : MonoBehaviour
 
     public void Explode() {
         // add animation, sound, etc
+        SFXManager.instance.MissileImpactSound();
         Destroy(gameObject);
     }
 
@@ -66,5 +67,13 @@ public class MissileController : MonoBehaviour
             collidedObj.GetComponent<BossController>().HitBoss();
             Explode();
         }
+    }
+
+    private void OnEnable() {
+        SFXManager.instance.CheckMissileSounds();
+    }
+
+    private void OnDisable() {
+        SFXManager.instance.CheckMissileSounds();
     }
 }

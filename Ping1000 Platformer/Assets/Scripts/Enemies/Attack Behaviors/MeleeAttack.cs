@@ -23,7 +23,9 @@ public class MeleeAttack : AttackBehavior
         
     }
 
-    public override void BeginAttack() {
+    public override void BeginAttack(string soundPath = "",
+        volumeType volume = volumeType.half) {
+        SFXManager.PlayNewSound(soundPath, volume);
         isAttacking = true;
         _col.enabled = true;
     }

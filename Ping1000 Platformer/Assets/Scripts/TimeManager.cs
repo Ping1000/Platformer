@@ -43,6 +43,7 @@ public class TimeManager : MonoBehaviour
     public static void SwapTime() {
         instance.isPast = !instance.isPast;
         SetTime(instance.isPast);
+        SFXManager.PlayNewSound("Audio/SFX/Time_Leap", volumeType.half);
     }
 
     /// <summary>

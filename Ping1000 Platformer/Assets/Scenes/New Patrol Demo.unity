@@ -12636,6 +12636,12 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!4 &1918773966 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6367407211617400317, guid: c687641640a96654a95699f8069ced59,
+    type: 3}
+  m_PrefabInstance: {fileID: 4103686105983461748}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2028484497
 GameObject:
   m_ObjectHideFlags: 0
@@ -18455,6 +18461,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 6981083980940776890, guid: 6e5918ecd5fdfdf489c04e8f66443103,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1918773966}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e5918ecd5fdfdf489c04e8f66443103, type: 3}
 --- !u!1001 &4103686105983461748

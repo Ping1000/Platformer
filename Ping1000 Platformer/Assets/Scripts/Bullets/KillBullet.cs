@@ -12,6 +12,7 @@ public class KillBullet : Bullet
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision) {
+        Debug.Log(collision.gameObject.name);
         EricCharacterMovement player = collision.gameObject.
             GetComponent<EricCharacterMovement>();
         if (player != null) {

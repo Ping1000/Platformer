@@ -288,6 +288,7 @@ MonoBehaviour:
     m_Bits: 256
   groundCheck: {fileID: 8740981220246240442}
   stopDistance: 3
+  attackSoundPath: Audio/SFX/Player_Shoot_1
 --- !u!1 &4681789522503919680
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,6 +444,7 @@ MonoBehaviour:
   facingRight: 1
   _anim: {fileID: 6096336825638815147}
   _atk: {fileID: 5208962546757997361}
+  attackSoundPath: Audio/SFX/Player_Shoot_1
   useWaypoints: 0
   movePositions: []
   floorTag: Floor
@@ -512,11 +514,11 @@ Rigidbody2D:
   m_Mass: 1000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 50
+  m_GravityScale: 5
   m_Material: {fileID: 6200000, guid: 3b7de3ad1ce3c0048b8391f65270c475, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &8136390524996659718
 GameObject:

@@ -26,6 +26,7 @@ public class TimeSwappable : MonoBehaviour
     }
 
     public void SwapTime() {
+        SFXManager.PlayNewSound("Audio/SFX/Time_gun_impact", volumeType.half);
         TimeManager.SwapTime(objectToSwap);
     }
 }

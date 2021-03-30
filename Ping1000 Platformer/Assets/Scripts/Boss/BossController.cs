@@ -65,6 +65,7 @@ public class BossController : MonoBehaviour {
     private void LeapToPosition() {
         float leapTime = 2f; // can make this an actual class var eventually
 
+        SFXManager.PlayNewSound("Audio/SFX/Jump", volumeType.half);
         LeanTween.moveX(gameObject, leapPosition.position.x, leapTime).setOnComplete(() =>
             BeginChasing());
         LeanTween.moveY(gameObject, transform.position.y + 10, leapTime / 2).
@@ -75,6 +76,8 @@ public class BossController : MonoBehaviour {
     }
 
     private void BeginChasing() {
+        // TEMPORARYYYY
+        SFXManager.PlayNewSound("Audio/SFX/Boss_Loud_Landing", volumeType.half);
         if (!facingRight)
             Flip();
 
@@ -121,6 +124,8 @@ public class BossController : MonoBehaviour {
             TimeManager.activeTimeParent);
 
         missile.transform.position = transform.Find("Missile Launch Point").position;
+
+        SFXManager.instance.StartMissileSound();
     }
 
     public void LaunchNuke() {
@@ -130,7 +135,8 @@ public class BossController : MonoBehaviour {
     }
 
     public void FireGun() {
-        _gun.Shoot();
+        // flip to be facing toward the player?
+        _gun.Shoot("Audio/SFX/Boss_Gun", volumeType.quiet);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
