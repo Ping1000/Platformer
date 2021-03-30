@@ -45,7 +45,7 @@ public class EricCharacterMovement : MonoBehaviour
 
     public Rigidbody2D _rb { get; private set; }
     private Collider2D _collider;
-    private GunController _gun;
+    public GunController _gun { get; private set; }
 
     public bool grounded { get; private set; }
     private bool spacePressed;

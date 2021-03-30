@@ -12,11 +12,15 @@ public class RegenGun : GunController {
     // will probably need this if we want the bullets icons to graduially fill in
     private float nextAmmoPercent;
 
+    // used for tracking ammo, not intented to be permanent solution
+    private EricCharacterMovement player;
+
     // Start is called before the first frame update
     void Start()
     {
         CurrentAmmo = maxAmmo;
         nextAmmoPercent = 0;
+        player = transform.parent.gameObject.GetComponent<EricCharacterMovement>();
     }
 
     // Update is called once per frame
@@ -27,6 +31,8 @@ public class RegenGun : GunController {
             if (nextAmmoPercent >= 1) {
                 nextAmmoPercent = 0;
                 CurrentAmmo++;
+                if (player != null)
+                    PlayerInfoCanvas.AddAmmo();
             }
         } else {
             nextAmmoPercent = 0;
@@ -41,6 +47,12 @@ public class RegenGun : GunController {
         GameObject newBullet = Instantiate(bulletPrefab, gunBarrel.position,
             gunBarrel.rotation, TimeManager.activeTimeParent.transform);
         newBullet.GetComponent<Bullet>().firedBy = transform.parent.gameObject;
+
+        // temporary implementation, but check if the player was the one who shot
+        if (player != null) {
+            PlayerInfoCanvas.RemoveAmmo();
+        }
+
         SFXManager.PlayNewSound(soundPath, volume);
 
         CurrentAmmo--;
