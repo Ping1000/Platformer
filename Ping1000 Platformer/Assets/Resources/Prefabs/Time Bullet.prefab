@@ -136,3 +136,4 @@ MonoBehaviour:
   moveSpeed: 5
   lifetime: 3
   firedBy: {fileID: 0}
+  bossHideTime: 2

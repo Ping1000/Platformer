@@ -13,6 +13,12 @@ public class TimeManager : MonoBehaviour
     [SerializeField] public GameObject futureParent;
     [SerializeField] public List<GameObject> futureTilemaps;
 
+    [Header("Misc")]
+    [Tooltip("When swapping time, how long the boss takes to come back.")]
+    [SerializeField] public float bossHideTime;
+
+    private BossController _bc;
+
     public static TimeManager instance;
     /// <summary>
     /// The parent Transform for the active time period. Useful
@@ -33,6 +39,7 @@ public class TimeManager : MonoBehaviour
     void Start()
     {
         SetTime(isPast);
+        _bc = FindObjectOfType<BossController>();
     }
 
     /// <summary>
@@ -43,6 +50,7 @@ public class TimeManager : MonoBehaviour
     public static void SwapTime() {
         instance.isPast = !instance.isPast;
         SetTime(instance.isPast);
+        instance.HideBoss();
         SFXManager.PlayNewSound("Audio/SFX/Time_Leap", volumeType.half);
     }
 
@@ -56,6 +64,7 @@ public class TimeManager : MonoBehaviour
         } else {
             swappedObj.transform.parent = instance.pastParent.transform;
         }
+        SFXManager.PlayNewSound("Audio/SFX/Time_gun_impact", volumeType.half);
     }
 
     /// <summary>
@@ -76,6 +85,23 @@ public class TimeManager : MonoBehaviour
         instance.futureParent.SetActive(!isPast);
         foreach (GameObject tilemap in instance.futureTilemaps) {
             tilemap.SetActive(!isPast);
+        }
+    }
+
+
+    public void HideBoss() {
+        if (_bc && _bc.gameObject.activeInHierarchy) {
+            _bc.gameObject.SetActive(false);
+            Invoke("RevealBoss", bossHideTime);
+        }
+    }
+
+    void RevealBoss() {
+        if (_bc) {
+            // play sound
+            SFXManager.PlayNewSound("Audio/SFX/Time_gun_impact", volumeType.half,
+                Random.Range(0.5f, 1.5f));
+            _bc.gameObject.SetActive(true);
         }
     }
 }

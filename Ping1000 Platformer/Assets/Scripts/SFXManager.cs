@@ -57,7 +57,7 @@ public class SFXManager : MonoBehaviour
     /// </summary>
     /// <param name="path">The path to the audio clip, starting in Resources</param>
     /// <param name="volumeMode">The volume mode/level to play at</param>
-    public static void PlayNewSound(string path, volumeType volumeMode) {
+    public static void PlayNewSound(string path, volumeType volumeMode, float pitch = 1f) {
         if (path == null || path == "")
             return;
 
@@ -83,6 +83,7 @@ public class SFXManager : MonoBehaviour
                 break;
         }
 
+        playerSrc.pitch = pitch;
         playerSrc.Play();
         Destroy(playerSrc.gameObject, playerSrc.clip.length);
     }
