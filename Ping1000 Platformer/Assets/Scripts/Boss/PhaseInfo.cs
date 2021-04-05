@@ -8,6 +8,7 @@ using UnityEngine;
 [System.Serializable]
 public class PhaseInfo {
     public Transform cameraPos;
+    public Transform bossPosition;
     public bool isEnragedPhase;
     public float bossMoveSpeed;
     // add boss movement/position info?

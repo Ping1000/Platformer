@@ -41,6 +41,8 @@ public class EricCharacterMovement : MonoBehaviour
     [Header("Extra Stuff")] 
     [SerializeField] private float coyoteTime = 0.2f;
     [SerializeField] private float bufferTime = 0.2f;
+    [Tooltip("Time, in seconds, to make the player invincible after being shot.")]
+    [SerializeField] private int invincibleTime = 3;
 
 
     public Rigidbody2D _rb { get; private set; }
@@ -58,6 +60,8 @@ public class EricCharacterMovement : MonoBehaviour
     private bool isPaused = false;
 
     public int lives = 3;
+    [HideInInspector]
+    public bool isInvincible;
 
     // Init and Update functions
     void Awake()
@@ -152,13 +156,24 @@ public class EricCharacterMovement : MonoBehaviour
 
     public void HitPlayer(int damage = 1)
     {
+        if (isInvincible)
+            return;
+
         lives -= damage;
         PlayerInfoCanvas.RemoveHealth(damage);
         if (lives <= 0)
         {
             LevelProgressTracker.PlayerDeath();
+        } else {
+            isInvincible = true;
+            float halfFlashTime = 0.2f;
+            LeanTween.alpha(gameObject, 0f, halfFlashTime).
+                setLoopPingPong((int)(invincibleTime / (2 * halfFlashTime))).
+                setOnComplete(() => isInvincible = false);
         }
     }
+
+
 
 
     // Action functions
