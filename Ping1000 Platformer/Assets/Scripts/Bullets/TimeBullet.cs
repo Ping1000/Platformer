@@ -16,10 +16,8 @@ public class TimeBullet : Bullet
             SFXManager.PlayNewSound("Audio/SFX/Time_gun_impact", volumeType.half);
             DespawnBullet();
         } else if (bc != null) {
-            if (!bc.isInvincible) {
-                TimeManager.instance.HideBoss();
-                SFXManager.PlayNewSound("Audio/SFX/Time_gun_impact", volumeType.half);
-            }
+            TimeManager.instance.HideBoss();
+            SFXManager.PlayNewSound("Audio/SFX/Time_gun_impact", volumeType.half);
             DespawnBullet();
         }
     }

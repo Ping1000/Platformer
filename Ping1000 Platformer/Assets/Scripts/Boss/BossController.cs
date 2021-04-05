@@ -20,17 +20,11 @@ public class BossController : MonoBehaviour {
     [HideInInspector]
     public bool isChasing;
     public float chasingMoveSpeed;
-    private GameObject enragedWall;
 
     [SerializeField]
     private bool facingRight;
     [SerializeField]
     public Transform leapPosition;
-
-    [HideInInspector]
-    public bool isInvincible;
-    [SerializeField] 
-    private int invincibleTime = 3;
 
     public int baseHealth { get; private set; }
     public int Health { get { return _anim.GetInteger("health"); } 
@@ -43,8 +37,6 @@ public class BossController : MonoBehaviour {
         _rb = GetComponent<Rigidbody2D>();
         _gun = GetComponentInChildren<GunController>();
         player = FindObjectOfType<EricCharacterMovement>();
-        enragedWall = GetComponentInChildren<EnragedWall>().gameObject;
-        enragedWall.SetActive(false);
         baseHealth = Health;
         isChasing = false;
         StartNewPhase();
@@ -94,20 +86,16 @@ public class BossController : MonoBehaviour {
     }
 
     private void BeginChasing() {
+        // TEMPORARYYYY
         SFXManager.PlayNewSound("Audio/SFX/Boss_Loud_Landing", volumeType.half);
+        //if (!facingRight)
+        //    Flip();
 
         // do something to level here? like in a coroutine?
         DoorLocks.LockDoors(false);
         _rb.velocity = Vector2.zero;
+        GetComponent<BossFlyingMovement>().enabled = false;
         Camera.main.GetComponent<FollowCam>().enabled = true;
-
-        foreach (MissileController missile in FindObjectsOfType<MissileController>()) {
-            Destroy(missile.gameObject);
-        }
-        SFXManager.instance.StopMissileTravel();
-
-        // add the invisible wall that pushes the player forward
-        enragedWall.SetActive(true);
 
         // start moving to the right
         isChasing = true;
@@ -119,38 +107,24 @@ public class BossController : MonoBehaviour {
         PhaseInfo info = phaseInfo[currentPhase - 1];
         GameObject cam = Camera.main.gameObject;
         cam.GetComponent<FollowCam>().enabled = false;
+        GetComponent<BossFlyingMovement>().enabled = true;
         LeanTween.move(cam, info.cameraPos.position, 2f).setEaseOutSine();
 
         isEnraged = info.isEnragedPhase;
         if (currentPhase > 1)
             _anim.SetTrigger("idle");
-
         // do some setup stuff with the movement (set bounds, waypoints, or whatever)
-        LeanTween.move(gameObject, info.bossPosition, 2f).setEaseOutSine();
-
         DoorLocks.LockDoors(true);
     }
 
     public void StopChasing() {
         isChasing = false;
-        _rb.velocity = Vector2.zero;
-        enragedWall.SetActive(false);
         StartNewPhase();
     }
 
     public void HitBoss(int damage = 1) {
-        if (isInvincible)
-            return;
-
         Health -= damage;
         _anim.SetTrigger("damaged");
-        //if (Health > 0) {
-        //    isInvincible = true;
-        //    float halfFlashTime = 0.2f;
-        //    LeanTween.alpha(gameObject, 0f, halfFlashTime).
-        //        setLoopPingPong((int)(invincibleTime / (2 * halfFlashTime))).
-        //        setOnComplete(() => isInvincible = false);
-        //}
     }
 
     public void Die() {
@@ -163,13 +137,6 @@ public class BossController : MonoBehaviour {
             TimeManager.activeTimeParent);
 
         missile.transform.position = transform.Find("Missile Launch Point").position;
-
-        // point missile at player [only keep if the boss isn't moving]
-        Vector3 newRot = missile.transform.rotation.eulerAngles;
-        newRot.z = Vector3.SignedAngle(missile.transform.right, 
-            player.transform.position - missile.transform.position, 
-            Vector3.forward) + 90;
-        missile.transform.rotation = Quaternion.Euler(newRot);
 
         SFXManager.instance.StartMissileSound();
     }

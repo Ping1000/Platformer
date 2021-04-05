@@ -17,7 +17,7 @@ public class wm_damaged_behavior : StateMachineBehaviour
                     bc.Die();
                 } else {
                     becameEnraged = true;
-                    animator.SetBool("enraged", true);
+                    animator.SetTrigger("enraged");
                 }
             } else {
                 // go back to idle

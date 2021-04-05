@@ -106,7 +106,7 @@ public class SFXManager : MonoBehaviour
         }
     }
 
-    public void StopMissileTravel() {
+    void StopMissileTravel() {
         miscSource2.Stop();
     }
 
