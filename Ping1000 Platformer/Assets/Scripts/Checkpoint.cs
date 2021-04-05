@@ -52,8 +52,11 @@ public class Checkpoint : MonoBehaviour
     public void MoveCamera() {
         Camera cam = Camera.main;
 
-        LeanTween.value(cam.orthographicSize, cameraSize, 3.0f).setEaseInOutCubic().setOnUpdate((float f) => cam.orthographicSize = f);
-        LeanTween.move(cam.gameObject, cameraPos.position, 3.0f).setEaseInOutCubic();
+        LeanTween.value(cam.orthographicSize, cameraSize, 1.5f).setEaseInOutCubic().setOnUpdate((float f) => { 
+            if (cam != null)
+                cam.orthographicSize = f; 
+        });
+        LeanTween.move(cam.gameObject, cameraPos.position, 1.5f).setEaseInOutCubic();
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

@@ -88,7 +88,6 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-
     public void HideBoss() {
         if (_bc && _bc.gameObject.activeInHierarchy) {
             _bc.gameObject.SetActive(false);

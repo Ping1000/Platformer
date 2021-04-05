@@ -10,20 +10,26 @@ public class wm_idle_behavior : StateMachineBehaviour
     public float maxIdleTime = 7.5f;
 
     private float randIdleTime;
+
+    // behavior alternates between missile and not missile
+    private static bool nextIsMissile = false;
     private string[] options;
-    private int optionChosen;
+    private string optionChosen;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         randIdleTime = Random.Range(minIdleTime, maxIdleTime);
-        options = new string[] {"move", "missile", "nuke", "gun"}; // jump excluded for now
-        optionChosen = Random.Range(0, options.Length);
+        options = new string[] {"nuke", "gun"};
+        if (nextIsMissile)
+            optionChosen = "missile";
+        else
+            optionChosen = options[Random.Range(0, options.Length)];
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         if (randIdleTime <= 0) {
-            animator.SetTrigger(options[optionChosen]);
+            animator.SetTrigger(optionChosen);
         } else {
             randIdleTime -= Time.deltaTime;
         }
@@ -31,7 +37,9 @@ public class wm_idle_behavior : StateMachineBehaviour
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-
+        // if we exited from idle time running out as opposed to being shot
+        if (randIdleTime <= 0)
+            nextIsMissile = !nextIsMissile;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
