@@ -7,7 +7,7 @@ public class BossFightStart : MonoBehaviour
     public List<GameObject> objectsToActivate;
     public List<MonoBehaviour> componentsToEnable;
 
-    private void Start() {
+    private void Awake() {
         foreach (GameObject go in objectsToActivate) {
             go.SetActive(false);
         }

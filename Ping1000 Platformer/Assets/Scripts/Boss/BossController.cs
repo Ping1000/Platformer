@@ -32,6 +32,9 @@ public class BossController : MonoBehaviour {
     [SerializeField] 
     private int invincibleTime = 3;
 
+    [SerializeField]
+    private Transform missileLaunchPoint;
+
     public int baseHealth { get; private set; }
     public int Health { get { return _anim.GetInteger("health"); } 
         set { _anim.SetInteger("health", value); }}
@@ -139,8 +142,8 @@ public class BossController : MonoBehaviour {
     }
 
     public void HitBoss(int damage = 1) {
-        if (isInvincible)
-            return;
+        //if (isInvincible)
+        //    return;
 
         Health -= damage;
         _anim.SetTrigger("damaged");
@@ -162,9 +165,9 @@ public class BossController : MonoBehaviour {
         GameObject missile = Instantiate(Resources.Load("Prefabs/Missile") as GameObject,
             TimeManager.activeTimeParent);
 
-        missile.transform.position = transform.Find("Missile Launch Point").position;
+        missile.transform.position = missileLaunchPoint.position;
 
-        // point missile at player [only keep if the boss isn't moving]
+        // point missile at player
         Vector3 newRot = missile.transform.rotation.eulerAngles;
         newRot.z = Vector3.SignedAngle(missile.transform.right, 
             player.transform.position - missile.transform.position, 
@@ -181,7 +184,6 @@ public class BossController : MonoBehaviour {
     }
 
     public void FireGun() {
-        // flip to be facing toward the player?
         _gun.Shoot("Audio/SFX/Boss_Gun", volumeType.quiet);
     }
 

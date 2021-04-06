@@ -30,14 +30,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Mouse Aim",
-                    "type": "Value",
-                    "id": "86d531e2-cd1e-49f7-a4b4-1ded97388f56",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Time Swap",
                     "type": "Button",
                     "id": "7dd775de-2f4d-46b7-9a19-bf3c0cb25024",
@@ -195,28 +187,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "82994884-3f07-4f98-ba7e-53a9f2d16939",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Mouse Aim",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0951e05f-3e42-4a57-9450-af309bb47090",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Mouse Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

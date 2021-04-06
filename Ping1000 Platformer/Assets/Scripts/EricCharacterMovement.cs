@@ -56,7 +56,7 @@ public class EricCharacterMovement : MonoBehaviour
     private float timeSinceGrounded = Mathf.Infinity;
     private float timeSinceBuffered = Mathf.Infinity;
 
-    private bool facingRight;
+    public bool facingRight { get; private set; }
     private bool isPaused = false;
 
     public int lives = 3;
@@ -145,7 +145,7 @@ public class EricCharacterMovement : MonoBehaviour
 
 
     // Player functions
-    private void Flip()
+    public void Flip()
     {
         // Switch the way the player is labelled as facing.
         facingRight = !facingRight;
@@ -180,7 +180,7 @@ public class EricCharacterMovement : MonoBehaviour
     void OnMove(InputValue value)
     {
         Vector2 val = value.Get<Vector2>();
-        if ((val.x > 0 && !facingRight) || (val.x < 0 && facingRight)) { Flip(); }
+        // if ((val.x > 0 && !facingRight) || (val.x < 0 && facingRight)) { Flip(); }
         horizontalVelocity = val.x;
     }
     void OnJump(InputValue value)

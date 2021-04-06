@@ -297,7 +297,9 @@ MonoBehaviour:
   stopDamping: 0.0001
   coyoteTime: 0.2
   bufferTime: 0.2
+  invincibleTime: 3
   lives: 3
+  isInvincible: 0
 --- !u!114 &6367407211617400289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,7 +307,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6367407211617400312}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b6eff1c0afed054e8aee35651afd01a, type: 3}
   m_Name: 

@@ -31,7 +31,8 @@ public class EnragedWall : MonoBehaviour
     }
 
     private void OnCollisionStay2D(Collision2D collision) {
-        if (killCheck <= 0) {
+        if (collision.gameObject.GetComponent<EricCharacterMovement>() == player &&
+            killCheck <= 0) {
             player.isInvincible = false;
             player.HitPlayer(1000);
             return;
