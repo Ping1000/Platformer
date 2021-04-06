@@ -5,15 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Demo Menu.unity
     guid: 448f01c65afb3cd4d9fc42935865d1f7
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: 134dd6cd2195511498547cb394360615
   - enabled: 1
     path: Assets/Scenes/Downward Box Tutorial.unity
     guid: ff843aa6869ce944ba217e0efff7e2d4
   - enabled: 1
+    path: Assets/Scenes/Enemies Level.unity
+    guid: 5dae85da95bb113418324e3e5a3d3928
+  - enabled: 1
+    path: Assets/Scenes/Box Level.unity
+    guid: ec023e2a7dbe58d4294ab7ddb639fcaf
+  - enabled: 1
     path: Assets/Scenes/Boss Development.unity
-    guid: ddd857dab5440794a83b6bc5195ba994
+    guid: 103a339558610da459564c6307269c87
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/Tutorial Level.unity
     guid: f76c9bd1bafc7e94ca96beee0d81f4bc
