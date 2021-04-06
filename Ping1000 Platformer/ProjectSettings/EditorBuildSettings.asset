@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Downward Box Tutorial.unity
     guid: ff843aa6869ce944ba217e0efff7e2d4
   - enabled: 1
-    path: Assets/Scenes/Dupe of Boss Development 1.unity
+    path: Assets/Scenes/Boss Development.unity
     guid: ddd857dab5440794a83b6bc5195ba994
   - enabled: 0
     path: Assets/Scenes/Tutorial Level.unity

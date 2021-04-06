@@ -52,6 +52,11 @@ public class TimeManager : MonoBehaviour
         SetTime(instance.isPast);
         instance.HideBoss();
         SFXManager.PlayNewSound("Audio/SFX/Time_Leap", volumeType.half);
+        if (!MusicManager.hasPlayerSwappped) {
+            MusicManager.hasPlayerSwappped = true;
+            SFXManager.PlayNewSound("Audio/Music/Intro_Strings", volumeType.quiet,
+                1, MusicManager.instance.transform);
+        }
     }
 
     /// <summary>

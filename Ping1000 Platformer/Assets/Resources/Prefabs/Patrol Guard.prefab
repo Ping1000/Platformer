@@ -289,7 +289,7 @@ MonoBehaviour:
     m_Bits: 256
   groundCheck: {fileID: 8740981220246240442}
   stopDistance: 3
-  attackSoundPath: Audio/SFX/Player_Shoot_1
+  attackSoundPath: Audio/SFX/Misc/Enemy_Gun
 --- !u!1 &4681789522503919680
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,7 +446,7 @@ MonoBehaviour:
   facingRight: 0
   _anim: {fileID: 6096336825638815147}
   _atk: {fileID: 5208962546757997361}
-  attackSoundPath: Audio/SFX/Player_Shoot_1
+  attackSoundPath: Audio/SFX/Misc/Enemy_Gun
   useWaypoints: 0
   movePositions: []
   floorTag: Floor

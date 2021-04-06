@@ -36,8 +36,12 @@ public class LevelProgressTracker : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R)) {
-            PlayerDeath();
+            ReloadLevel();
         }
+    }
+
+    public static void ResetLevelProgress() {
+        progressDict.Clear();
     }
 
     public static void ResetLevelProgress(string levelName) {
@@ -53,9 +57,22 @@ public class LevelProgressTracker : MonoBehaviour
 
     public static void PlayerDeath() {
         // fade to black/death animation first
+        SFXManager.PlayNewSound("Audio/SFX/UI Sounds/Player_Death", volumeType.loud);
         // might have to move this to a coroutine then
+        instance.Invoke("ReloadLevel", 2f);
+    }
 
+    void ReloadLevel() {
         SceneManager.LoadScene(instance.sceneString);
+    }
+
+    public static void PlayerVictory() {
+        ResetLevelProgress();
+        instance.Invoke("ReturnToMainMenu", 2f);
+    }
+
+    void ReturnToMainMenu() {
+        SceneManager.LoadScene(0);
     }
 
     private void SetupCheckpoint() {

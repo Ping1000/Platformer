@@ -21,12 +21,15 @@ public class SFXManager : MonoBehaviour
     public static float veryLoudVolume = 0.8f;
 
     public AudioSource playerFootstepSrc;
+    public AudioSource bossFootstepSrc;
     public AudioSource miscSource1;
     public AudioSource miscSource2;
 
     private bool playerExists = false;
     private EricCharacterMovement player;
+    private BossController _bc;
     private string[] playerFootstepClips;
+    private string[] bossFootstepClips;
 
     private void Awake() {
         instance = this;
@@ -34,6 +37,7 @@ public class SFXManager : MonoBehaviour
 
     private void Start() {
         player = FindObjectOfType<EricCharacterMovement>();
+        _bc = FindObjectOfType<BossController>();
         if (player != null && playerFootstepSrc != null) {
             playerExists = true;
             playerFootstepClips = new string[9];
@@ -41,6 +45,13 @@ public class SFXManager : MonoBehaviour
                 playerFootstepClips[i] = "Footstep_" + (i + 1).ToString();
             }
             InvokeRepeating("PlayPlayerFootsteps", 0, 0.75f);
+        }
+        if (_bc != null && bossFootstepSrc != null) {
+            bossFootstepClips = new string[4];
+            for (int i = 0; i < 4; i++) {
+                bossFootstepClips[i] = "Footstep_" + (i + 1).ToString();
+            }
+            InvokeRepeating("PlayBossFootsteps", 0, 1.75f);
         }
     }
 
@@ -52,16 +63,29 @@ public class SFXManager : MonoBehaviour
         playerFootstepSrc.Play();
     }
 
+    public void PlayBossFootsteps() {
+        string clipName = bossFootstepClips[Random.Range(0, bossFootstepClips.Length)];
+        bossFootstepSrc.clip = Resources.Load("Audio/SFX/Footsteps/" + clipName) as AudioClip;
+        bossFootstepSrc.volume = (Mathf.Approximately(_bc.GetComponent<Rigidbody2D>().velocity.x,
+            _bc.chasingMoveSpeed)) ? loudVolume : 0;
+        bossFootstepSrc.Play();
+    }
+
+    public void PlayMainMenuSound(string path) {
+        PlayNewSound(path, volumeType.loud);
+    }
+
     /// <summary>
     /// Plays a specific song at the specified volume level.
     /// </summary>
     /// <param name="path">The path to the audio clip, starting in Resources</param>
     /// <param name="volumeMode">The volume mode/level to play at</param>
-    public static void PlayNewSound(string path, volumeType volumeMode, float pitch = 1f) {
+    public static void PlayNewSound(string path, volumeType volumeMode, float pitch = 1f,
+        Transform parent = null) {
         if (path == null || path == "")
             return;
 
-        GameObject sfxPlayer = Instantiate(Resources.Load("Audio/SFX Player") as GameObject);
+        GameObject sfxPlayer = Instantiate(Resources.Load("Audio/SFX Player") as GameObject, parent);
         AudioSource playerSrc = sfxPlayer.GetComponent<AudioSource>();
         playerSrc.clip = Resources.Load(path) as AudioClip;
 
