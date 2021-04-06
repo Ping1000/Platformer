@@ -98,6 +98,7 @@ public class BossController : MonoBehaviour {
 
     private void BeginChasing() {
         SFXManager.PlayNewSound("Audio/SFX/Boss_Loud_Landing", volumeType.half);
+        MusicManager.instance.EnragedMusicBegin();
 
         // do something to level here? like in a coroutine?
         DoorLocks.LockDoors(false);
@@ -138,6 +139,7 @@ public class BossController : MonoBehaviour {
         isChasing = false;
         _rb.velocity = Vector2.zero;
         enragedWall.SetActive(false);
+        MusicManager.instance.FinalMusicBegin();
         StartNewPhase();
     }
 
@@ -158,6 +160,7 @@ public class BossController : MonoBehaviour {
 
     public void Die() {
         // something cool
+        LevelProgressTracker.PlayerVictory();
         Destroy(gameObject);
     }
 

@@ -154,6 +154,7 @@ MonoBehaviour:
   facingRight: 1
   _anim: {fileID: 6551036632280308166}
   _atk: {fileID: 4963803568981670983}
+  attackSoundPath: Audio/SFX/Misc/Enemy_Zap
   useWaypoints: 0
   movePositions: []
   floorTag: Floor

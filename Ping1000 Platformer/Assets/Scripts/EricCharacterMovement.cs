@@ -165,7 +165,9 @@ public class EricCharacterMovement : MonoBehaviour
         if (lives <= 0)
         {
             LevelProgressTracker.PlayerDeath();
+            Destroy(gameObject);
         } else {
+            SFXManager.PlayNewSound("Audio/SFX/UI Sounds/Player_Damage", volumeType.half);
             isInvincible = true;
             float halfFlashTime = 0.2f;
             LeanTween.alpha(gameObject, 0f, halfFlashTime).
