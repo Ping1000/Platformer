@@ -66932,7 +66932,7 @@ MonoBehaviour:
     isEnragedPhase: 0
     bossMoveSpeed: 3
   isChasing: 0
-  chasingMoveSpeed: 7.5
+  chasingMoveSpeed: 15
   facingRight: 0
   leapPosition: {fileID: 725802342}
   isInvincible: 0

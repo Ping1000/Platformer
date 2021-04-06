@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackedObject: {fileID: 0}
-  visibleRadius: 5
+  visibleRadius: 7
   rotationSpeed: 5
   rotationPoint: {fileID: 4709714101900692411}
   rotator: {fileID: 4709714101984977943}
@@ -304,5 +304,5 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1774806037431153986, guid: 54ffb5bb53b1bed4a868582c02f9710a,
     type: 3}
   gunBarrel: {fileID: 4709714100899465695}
-  fireDelay: 3
+  fireDelay: 0.5
   fireTimer: 0
