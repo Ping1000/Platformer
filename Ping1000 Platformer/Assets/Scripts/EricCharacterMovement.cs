@@ -83,7 +83,7 @@ public class EricCharacterMovement : MonoBehaviour
         //
         Bounds colliderPos = _collider.bounds;
         Vector2 point = new Vector2(colliderPos.center.x, colliderPos.min.y);
-        Vector2 size = new Vector2(colliderPos.extents.x - boxcastMargins, boxcastMargins);
+        Vector2 size = new Vector2(colliderPos.extents.x + boxcastMargins, boxcastMargins);
 
         Collider2D[] colliders = Physics2D.OverlapBoxAll(point, size, 0f, whatIsGround);
         grounded = false;
@@ -136,11 +136,12 @@ public class EricCharacterMovement : MonoBehaviour
     {
         timeSinceBuffered += Time.deltaTime;
         timeSinceGrounded += Time.deltaTime;
-
-        if (gameObject.transform.position.y < -15)
+        
+        // TODO implement kill volumes instead of this
+        /*if (gameObject.transform.position.y < -15)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        }*/
     }
 
 
