@@ -62,7 +62,7 @@ public class LevelProgressTracker : MonoBehaviour
         instance.Invoke("ReloadLevel", 2f);
     }
 
-    void ReloadLevel() {
+    public static void ReloadLevel() {
         SceneManager.LoadScene(instance.sceneString);
     }
 
