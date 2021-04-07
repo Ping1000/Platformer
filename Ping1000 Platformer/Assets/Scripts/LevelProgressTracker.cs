@@ -57,12 +57,12 @@ public class LevelProgressTracker : MonoBehaviour
 
     public static void PlayerDeath() {
         // fade to black/death animation first
-        SFXManager.PlayNewSound("Audio/SFX/UI Sounds/Player_Death", volumeType.loud);
+        SFXManager.PlayNewSound("Audio/SFX/UI Sounds/Player_Death", volumeType.half);
         // might have to move this to a coroutine then
         instance.Invoke("ReloadLevel", 2f);
     }
 
-    public static void ReloadLevel() {
+    public void ReloadLevel() {
         SceneManager.LoadScene(instance.sceneString);
     }
 
