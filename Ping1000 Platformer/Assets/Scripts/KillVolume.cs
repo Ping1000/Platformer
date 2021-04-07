@@ -9,7 +9,7 @@ public class KillVolume : MonoBehaviour
         Debug.Log("Fall Off");
         if (col.gameObject.CompareTag("Player")) 
         {
-            LevelProgressTracker.ReloadLevel();
+            LevelProgressTracker.PlayerDeath();
         }
         else
         {

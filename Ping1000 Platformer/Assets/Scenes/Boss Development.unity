@@ -39306,13 +39306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d80a2e9b0789f645946428da4459016, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  checkpoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  player: {fileID: 1596492135}
+  checkpoints: []
 --- !u!1 &707450443
 GameObject:
   m_ObjectHideFlags: 0

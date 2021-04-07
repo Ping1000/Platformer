@@ -165,7 +165,7 @@ public class EricCharacterMovement : MonoBehaviour
         if (lives <= 0)
         {
             LevelProgressTracker.PlayerDeath();
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         } else {
             SFXManager.PlayNewSound("Audio/SFX/UI Sounds/Player_Damage", volumeType.half);
             isInvincible = true;
