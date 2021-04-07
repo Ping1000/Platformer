@@ -1,0 +1,299 @@
+fileFormatVersion: 2
+guid: 0892290d6caf23740ada594498ab2999
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7626347651675845035
+    second: noun_keyboard button_3140562_0
+  - first:
+      213: -3982008612481958064
+    second: noun_keyboard button_3140562_1
+  - first:
+      213: -4691376139276669489
+    second: noun_keyboard button_3140562_2
+  - first:
+      213: -6241015904758135716
+    second: noun_keyboard button_3140562_3
+  - first:
+      213: 8060000838915141395
+    second: noun_keyboard button_3140562_4
+  - first:
+      213: 6291557461549548671
+    second: noun_keyboard button_3140562_5
+  - first:
+      213: 5041338042197731995
+    second: noun_keyboard button_3140562_6
+  - first:
+      213: 5646935163815114198
+    second: noun_keyboard button_3140562_7
+  - first:
+      213: 4306458722767196816
+    second: noun_keyboard button_3140562_8
+  - first:
+      213: 9051104910347214704
+    second: noun_keyboard button_3140562_9
+  - first:
+      213: 1751344313902902801
+    second: noun_keyboard button_3140562_10
+  - first:
+      213: -2622766955792077047
+    second: noun_keyboard button_3140562_11
+  - first:
+      213: -5469208945638861297
+    second: noun_keyboard button_3140562_12
+  - first:
+      213: -3225976325377246732
+    second: noun_keyboard button_3140562_13
+  - first:
+      213: -5702357681613817886
+    second: noun_keyboard button_3140562_14
+  - first:
+      213: -2904779874129525630
+    second: noun_keyboard button_3140562_15
+  - first:
+      213: 7789267503667622207
+    second: noun_keyboard button_3140562_16
+  - first:
+      213: -5694361900124817680
+    second: noun_keyboard button_3140562_17
+  - first:
+      213: -3797534830096388173
+    second: noun_keyboard button_3140562_18
+  - first:
+      213: 2060538418234717819
+    second: noun_keyboard button_3140562_19
+  - first:
+      213: -4253571637833004855
+    second: noun_keyboard button_3140562_20
+  - first:
+      213: 1420627114470631647
+    second: noun_keyboard button_3140562_21
+  - first:
+      213: 2255759174786823070
+    second: noun_keyboard button_3140562_22
+  - first:
+      213: 895325566596975598
+    second: noun_keyboard button_3140562_23
+  - first:
+      213: -4644394036739984494
+    second: noun_keyboard button_3140562_24
+  - first:
+      213: 5598389345059347605
+    second: noun_keyboard button_3140562_25
+  - first:
+      213: 3543179601208661593
+    second: noun_keyboard button_3140562_26
+  - first:
+      213: 1882361066219365409
+    second: noun_keyboard button_3140562_27
+  - first:
+      213: 7353030565682892895
+    second: noun_keyboard button_3140562_28
+  - first:
+      213: -897283539469716696
+    second: noun_keyboard button_3140562_29
+  - first:
+      213: -7196752209346827672
+    second: noun_keyboard button_3140562_30
+  - first:
+      213: 2093744766974807571
+    second: noun_keyboard button_3140562_31
+  - first:
+      213: 5131743953005415523
+    second: noun_keyboard button_3140562_32
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: noun_keyboard button_3140562_0
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 404
+        width: 170
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba1f5c778ca36d960800000000000000
+      internalID: 7626347651675845035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_keyboard button_3140562_1
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 227
+        width: 170
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05f7778b3401db8c0800000000000000
+      internalID: -3982008612481958064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_keyboard button_3140562_2
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 227
+        width: 170
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcdabaed142e4eeb0800000000000000
+      internalID: -4691376139276669489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: noun_keyboard button_3140562_3
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 227
+        width: 170
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c540457d9157369a0800000000000000
+      internalID: -6241015904758135716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
